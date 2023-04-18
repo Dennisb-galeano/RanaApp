@@ -1,0 +1,66 @@
+
+* {
+  font-family: 'cooper black';
+  color: rgb(11, 206, 40);
+  background-color: rgb(6, 0, 48);
+
+}
+
+body {
+  padding: 60px;
+  text-align: center;
+}
+
+
+img 
+{
+ width:100%;
+ height:100%;
+ object-fit: contain;    
+}
+
+.sapo
+{
+  height: 300px;
+  width: 50%;
+  /* animation: bounce 10s ease-in infinite; */
+}
+ 
+@keyframes bounce {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(45vw); /* ancho */
+    }
+
+    100%{
+      transform: translateX(0vW);
+    }
+}
+  
+
+
+input {
+  background-color: white;
+  border-radius: 13px;
+  border: 2px solid rgb(97, 32, 158);
+  color: black;
+  font-size: 1.2rem;
+  outline: none;
+  padding: 10px 15px;
+  width: 100%;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: rgb(143, 164, 147);
+  align-self: flex-end;
+ 
+}
+
+h3 {
+  font-size: 3rem;
+  margin-bottom: 5px;
+}
+
