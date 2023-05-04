@@ -1,51 +1,36 @@
 
-// iniciar pantalla de juego
 
-import React, { useState } from 'react'
-import { RanaApp } from '../RanaApp'
+export const FirstPage = ({ setCurrentPage }) => {
 
-export const FirstPage = () => {
-  const [inputButton, setInputButton] = useState();
-  
-  const onInputChange = ({target}) => {
-    setInputButton(target.value);
-  }
-
-  const onSubmit = (event) => {
+  const changePage = (event) => {
     event.preventDefault();
-    console.log(inputButton);
+    setCurrentPage(1)
   }
-
-
-
-  // <form on onSubmit={event => console.log(event) } >
-
-
-  // </form>
 
   return (
     <>
       {/* titulo */}
-      <h1>
-        RANA APP
-      </h1>
-    
-       {/* imagen */}
-      <div className="sapo">
-        <img src="./sapo transparente.png" alt=" BoliRana"/>
-      </div>  
 
-    {/* Boton  */}
-      <button onClick={addButton }>  iniciar juego</button>
+      <h1>
+        <br /><br />
+        **** RANA APP ****
+      </h1>
+
+      {/* imagen */}
+
+      <div className="sapo">
+        <img src="./public/images/sapo.png" alt=" BoliRana" />
+      </div>
+      <div className="argolla">
+        <img src='./public/images/argolla.png' alt='argollaSapo' />
+      </div>
+
+      {/* Boton  */}
+      <div className='startButton'>
+        <button type="button" className='btn btn-secondary btn-lg' onClick={changePage} > Iniciar juego </button>
+      </div>
 
     </>
 
   )
 }
-
-
-
-
-
-// <input type="reset" value="Limpiar formulario"></input>
-// onsubmit = llama una funcion cuando se envia un formulario

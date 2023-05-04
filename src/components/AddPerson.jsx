@@ -3,49 +3,36 @@
 
 import { useState } from "react"
 
-  export const AddPerson = ({onNewPerson}) => {
-  
+export const AddPerson = ({ onNewPerson }) => {
+
 
   const [inputPerson, setInputPerson] = useState('');
 
   const onInputChange = (event) => {
     setInputPerson(event.target.value);
-    
   }
+
   //permite la entrada de la informacion 
-  const onSubmit =(event) => {
+  const onSubmit = (event) => {
     event.preventDefault();
     if (inputPerson.trim().length <= 1) //trim - elimina los espacios en blanco en ambos extremos del string
       return;
-    onNewPerson (inputPerson.trim()); //solo se va a emitir, si cunple con la conficion del trim
-    setInputPerson ('');  // limpia el input
+    onNewPerson(inputPerson.trim()); //solo se va a emitir, si cunple con la conficion del trim
+    setInputPerson('');  // limpia el input
   }
 
-
-
   return (
-    <form onSubmit={onSubmit} > 
+    <form onSubmit={onSubmit} >
       <input
+        id="form_id"
         type="text"
-        placeholder="Nombre del primer jugador"
+        placeholder="Nombre del jugador"
         value={inputPerson}
-        onChange={ (onInputChange) } //me permite escribir en el input
-        
-      />
-      <br />
-      <br />
-      <br />
-      <button type="submit"  > Agregar participante</button>
-
-
-      {/* <button type="reset" > Eliminar participante</button> */}
-
+        onChange={(onInputChange)} //me permite escribir en el input
+     />
     </form>
-  )
-
-
   
-
+  )
 }
 
 

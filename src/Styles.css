@@ -1,16 +1,17 @@
 
 * {
   font-family: 'cooper black';
-  color: rgb(11, 206, 40);
   background-color: rgb(6, 0, 48);
-
-}
-
-body {
-  padding: 60px;
   text-align: center;
+
+}
+.container {
+  display: flex;
 }
 
+body{
+  color:rgb(143, 164, 147);
+}
 
 img 
 {
@@ -21,25 +22,53 @@ img
 
 .sapo
 {
-  height: 300px;
+  height: 200px;
   width: 50%;
-  /* animation: bounce 10s ease-in infinite; */
+  
+  animation: bounce 10s ease-in infinite;
 }
  
 @keyframes bounce {
-    0% {
-      transform: translateX(0);
-    }
     50% {
       transform: translateX(45vw); /* ancho */
     }
-
     100%{
       transform: translateX(0vW);
     }
 }
-  
 
+.argolla
+{
+  margin: 30%;
+  height: 70px;
+  width: 30%;
+  animation: bounce2  2s ease-in infinite;
+}
+
+@keyframes bounce2 {
+
+ 0% {
+  transform: rotate(180deg);
+ }
+  50% {
+    transform: translateY(-40vw); 
+  }
+  100%{
+    transform: translateY(25vW);
+
+  }
+}
+
+.startButton
+{
+margin: 15%;
+}
+
+
+.buttonsChangeList
+{
+  margin-bottom: 25%;
+}
 
 input {
   background-color: white;
@@ -50,11 +79,16 @@ input {
   outline: none;
   padding: 10px 15px;
   width: 100%;
+  
+}
+
+h1{
+  color: rgb(11, 206, 40);
 }
 
 h2 {
   font-size: 1.5rem;
-  color: rgb(143, 164, 147);
+  color:rgb(136, 147, 138);
   align-self: flex-end;
  
 }
@@ -63,4 +97,42 @@ h3 {
   font-size: 3rem;
   margin-bottom: 5px;
 }
+
+div span,
+p
+{
+  width:70%;
+  max-width:500px;
+  padding:10px;
+  border:2px solid rgb(11, 206, 40);
+  border-radius: 13px;
+  background-color: rgb(182, 213, 213);
+  color: black;
+  margin: auto;
+}
+
+.form-select {
+  width:70%;
+  max-width:500px;
+  padding:10px;
+  border-radius: 13px;
+  color: rgb(11, 206, 40);
+  margin: auto;
+  background-color: rgb(9, 3, 53);;
+}
+
+.TittleTablePoints{
+  margin: 15%;
+}
+
+div
+.ButtonPoints {
+  margin-top: 60px;
+
+}
+
+.change_points{
+  margin-top: 60px;
+}
+
 

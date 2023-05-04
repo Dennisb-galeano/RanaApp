@@ -1,51 +1,71 @@
 import { useState } from "react";
-import { AddPerson } from "./components/AddPerson";
-// import { FirstPage } from "./components/FirstPage";
+import { FirstPage } from "./components/FirstPage";
+import { Header } from "./components/Header";
+import { ConfigBoard } from "./components/ConfigBoard";
+import { Board } from "./components/Board";
+import { BoardTablePoints } from "./components/BoardTablePoints";
+
+
 
 // el componente padre, ranaApp hace referencia a tooda la pagina.. 
 export const RanaApp = () => {
-    const [names, setNames] = useState([]); //espacio en memoria para manejar mis categorias
 
-    const onAddPerson = (NewCategory) => {
-      setNames ([...names, NewCategory ]);
+
+    const [currentPage,setCurrentPage] = useState(0);
+    /*
+    0 = FirstPage (Inicio)
+    1 = ConfigBoard
+    2 = Board
+    3 = BoardTablePoints
+    4 = 
+    */
+      
+  function RenderPage({currentPage}) {
+    // console.log(currentPage);
+    if (currentPage == 0){
+      return <FirstPage
+        setCurrentPage={setCurrentPage}
+      />;
     }
+    else if(currentPage == 1) { 
+      return (
+        <>
+        <Header/>
+        <ConfigBoard
+          setCurrentPage={setCurrentPage}
+        />
+        </>
+      )
+    }
+    else if (currentPage == 2){
+      return (
+        <>
+        <Board
+        setCurrentPage={setCurrentPage}
+        />
+        </>
+       )
+    }
+
+    else if ( currentPage == 3 ){
+      return(
+        <>
+        <BoardTablePoints
+        setCurrentPage={setCurrentPage}
+        />
+        
+        
+        </>
+      )
+    } 
+
+  }
 
   return (
     <>
-    {/* Titulo */}
-    <h1> 
-      LA RANA APP CUENTA TU PUNTAJE !!!  
-    </h1>
-
-    {/* imagen */}
-    <div className="sapo">
-        <img src="./sapo transparente.png" alt=" BoliRana"/>
-       
-      </div>
-    <h2>Configuración del tablero </h2> 
-  
-    
-    {/* INPUT */}
-     <AddPerson 
-      onNewPerson={onAddPerson} 
-
+    <RenderPage
+      currentPage={currentPage}
     />
-     <br/>
-     <br/>
-     <br/>
-
-    {/* listado de nombres */}
-    
-    <ol>
-     {
-      names.map(name => {  //me permite barrer c/u de los elementos del arreglo y regresar a algo nuevo
-        return <li key={name}> {name} </li>
-      })
-      
-      }
-    </ol>
-    
-
     </>
   )
 }
