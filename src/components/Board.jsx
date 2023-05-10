@@ -36,30 +36,23 @@ export const Board = ({ setCurrentPage }) => {
 
       {/* Buttons Points */}
       <div className='ButtonPoints'>
-        <button type="button" className="btn btn-success">20</button>
-        <button type="button" className="ms-1 btn btn-success">30</button>
-        <button type="button" className="ms-1 btn btn-success">40</button>
-        <button type="button" className="ms-1 btn btn-success">50</button>
-        <button type="button" className="ms-1 btn btn-success">60</button>
-        <button type="button" className="ms-1 btn btn-success">70</button>
-        <button type="button" className="ms-1 btn btn-success">80</button>
-        <button type="button" className="ms-1 btn btn-warning">Rana: 200</button>
-        <button type="button" className="ms-1 btn btn-warning">Botella: 100</button>
-        <button type="button" className="btn btn-danger">Se Blanqueo -10</button>
-     
+        <button type="button" value="20" className="btn btn-success">20</button>
+        <button type="button" value="30" className="ms-1 btn btn-success">30</button>
+        <button type="button" value="40" className="ms-1 btn btn-success">40</button>
+        <button type="button" value="50" className="ms-1 btn btn-success">50</button>
+        <button type="button" value="60" className="ms-1 btn btn-success">60</button>
+        <button type="button" value="70" className="ms-1 btn btn-success">70</button>
+        <button type="button" value="80" className="ms-1 btn btn-success">80</button>
+        <button type="button" value="200" className="ms-1 btn btn-warning">Rana: 200</button>
+        <button type="button" value="100" className="ms-1 btn btn-warning">Botella: 100</button>
+        <button type="button" value="-10" className="btn btn-danger">Se Blanqueo -10</button>
 
       </div>
-
-      <div className='change_points'>          
+      <div className='change_points'>
         <button type="button" className="btn btn-outline-info">Reiniciar Puntaje</button>
       </div>
 
-
-      {/* Final Button  */}
-      <br /><br /><br />
-      <input type="button" onClick={changePage} value="Como vamos" />
-
-      {/* Boton  */}
+      {/*Final Button  */}
       <div className='startButton'>
         <button type="button" className='btn btn-secondary btn-lg' onClick={changePage} > Como vamos</button>
       </div>

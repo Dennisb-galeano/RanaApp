@@ -10,7 +10,6 @@ import { BoardTablePoints } from "./components/BoardTablePoints";
 // el componente padre, ranaApp hace referencia a tooda la pagina.. 
 export const RanaApp = () => {
 
-
     const [currentPage,setCurrentPage] = useState(0);
     /*
     0 = FirstPage (Inicio)
@@ -58,7 +57,6 @@ export const RanaApp = () => {
         </>
       )
     } 
-
   }
 
   return (
