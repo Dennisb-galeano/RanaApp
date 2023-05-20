@@ -1,13 +1,14 @@
 
 import { useRef, useState } from 'react';
 
-export const ConfigBoard = ({ setCurrentPage }) => {
+export const ConfigBoard = ({ startGame }) => {
+
   // variables 
   const inputNamePlayerRef = useRef(); // devuelve un objeto ref mutable cuya propiedad .current se inicializa en el argumento pasado (valor inicial). El objeto devuelto persistirá durante toda la vida útil del componente.
 
   // states 
   const [names, setNames] = useState([]); //espacio en memoria para manejar mis categorias
-  const [points, setPoints] = useState(500);  
+  const [points, setPoints] = useState(500);
 
   // functions
   const addPlayer = (event) => {
@@ -25,7 +26,12 @@ export const ConfigBoard = ({ setCurrentPage }) => {
 
   const changePage = (event) => {
     event.preventDefault();
-    setCurrentPage(2);
+    if (names == 0) {
+      alert('debe haber al menos un jugador');
+    }
+    else {
+      startGame(names, points);
+    }
   }
 
   const deleteList = (event) => {
@@ -34,6 +40,7 @@ export const ConfigBoard = ({ setCurrentPage }) => {
   }
 
   const selectPoints = (event) => {
+    event.preventDefault();
     setPoints(event.target.value);
   }
 
@@ -79,6 +86,7 @@ export const ConfigBoard = ({ setCurrentPage }) => {
       <div>
         <button type="submit" className="btn btn-secondary btn-lg" onClick={changePage} > JUGAR </button>
       </div>
+
     </>
   );
 }

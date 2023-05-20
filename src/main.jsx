@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RanaApp } from './RanaApp';
-import './Styles.css';
+import './styles.css';
 import { FirstPage } from './components/FirstPage';
 
 

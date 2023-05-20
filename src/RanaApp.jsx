@@ -2,68 +2,60 @@ import { useState } from "react";
 import { FirstPage } from "./components/FirstPage";
 import { Header } from "./components/Header";
 import { ConfigBoard } from "./components/ConfigBoard";
-import { Board } from "./components/Board";
-import { BoardTablePoints } from "./components/BoardTablePoints";
+import { Game } from "./components/Game";
 
 
-
-// el componente padre, ranaApp hace referencia a tooda la pagina.. 
+// el componente padre, ranaApp hace referencia a tooda la pagina.. (orquestador)
 export const RanaApp = () => {
 
-    const [currentPage,setCurrentPage] = useState(0);
-    /*
-    0 = FirstPage (Inicio)
-    1 = ConfigBoard
-    2 = Board
-    3 = BoardTablePoints
-    4 = 
-    */
-      
-  function RenderPage({currentPage}) {
-    // console.log(currentPage);
-    if (currentPage == 0){
+  const [players, setPlayers] = useState([]);
+  const [points, setPoints] = useState(0);
+
+  const [currentPage, setCurrentPage] = useState(0);
+  /*
+  0 = FirstPage (Inicio)
+  1 = ConfigBoard
+  2 = Game
+ 
+  */
+  const startGame = (names, maxPoints) => {
+    setPlayers(names);
+    setPoints(maxPoints);
+    setCurrentPage(2);
+  }
+
+  function RenderPage({ currentPage }) {
+    if (currentPage == 0) {
       return <FirstPage
         setCurrentPage={setCurrentPage}
       />;
     }
-    else if(currentPage == 1) { 
+    else if (currentPage == 1) {
       return (
         <>
-        <Header/>
-        <ConfigBoard
-          setCurrentPage={setCurrentPage}
-        />
+          <Header />
+          <ConfigBoard
+            startGame={startGame}
+          />
         </>
       )
     }
     else if (currentPage == 2){
-      return (
-        <>
-        <Board
-        setCurrentPage={setCurrentPage}
-        />
-        </>
-       )
-    }
-
-    else if ( currentPage == 3 ){
-      return(
-        <>
-        <BoardTablePoints
-        setCurrentPage={setCurrentPage}
+      return( 
+        <Game
+          players={players}
+          points={points}
         />
         
-        
-        </>
       )
-    } 
+    }
   }
-
+  
   return (
     <>
-    <RenderPage
-      currentPage={currentPage}
-    />
+      <RenderPage
+        currentPage={currentPage}
+      />
     </>
   )
 }
@@ -73,5 +65,5 @@ export const RanaApp = () => {
 // reakt pierde la referenciade kos states a uqe state se esratia manejando
 
 
- 
+
 

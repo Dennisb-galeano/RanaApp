@@ -10,14 +10,9 @@ export const FirstPage = ({ setCurrentPage }) => {
   return (
     <>
       {/* titulo */}
-
-      <h1>
-        <br /><br />
-        **** RANA APP ****
-      </h1>
+      <h1> **** RANA APP **** </h1>
 
       {/* imagen */}
-
       <div className="sapo">
         <img src="./public/images/sapo.png" alt=" BoliRana" />
       </div>

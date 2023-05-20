@@ -1,17 +1,26 @@
+Global styles
+letra titulos 
+botones
+color letra
+
+h1{
+  color: rgb(46, 113, 39);
+  
+}
 
 * {
-  font-family: 'cooper black';
-  background-color: rgb(6, 0, 48);
+  font-family: Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  background-color: rgb(9, 2, 51);
+  color: rgb(3, 148, 148);
   text-align: center;
-
 }
+
+
 .container {
   display: flex;
 }
 
-body{
-  color:rgb(143, 164, 147);
-}
 
 img 
 {
@@ -24,6 +33,7 @@ img
 {
   height: 200px;
   width: 50%;
+  margin: 30px;
   
   animation: bounce 10s ease-in infinite;
 }
@@ -62,8 +72,8 @@ img
 .startButton
 {
 margin: 15%;
-}
 
+}
 
 .buttonsChangeList
 {
@@ -77,18 +87,15 @@ input {
   color: black;
   font-size: 1.2rem;
   outline: none;
-  padding: 10px 15px;
+  padding: 6px 15px;
   width: 100%;
   
 }
 
-h1{
-  color: rgb(11, 206, 40);
-}
 
 h2 {
   font-size: 1.5rem;
-  color:rgb(136, 147, 138);
+  color:rgb(153, 154, 170);
   align-self: flex-end;
  
 }
@@ -126,13 +133,11 @@ p
 }
 
 div
-.ButtonPoints {
+.button-points {
   margin-top: 60px;
 
 }
 
-.change_points{
+.change-points{
   margin-top: 60px;
 }
-
-
