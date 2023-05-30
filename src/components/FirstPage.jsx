@@ -10,7 +10,8 @@ export const FirstPage = ({ setCurrentPage }) => {
   return (
     <>
       {/* titulo */}
-      <h1> **** RANA APP **** </h1>
+      <h1>RANA APP</h1>
+      <h2>¡ Cuenta tu puntaje !</h2>
 
       {/* imagen */}
       <div className="sapo">
@@ -21,8 +22,8 @@ export const FirstPage = ({ setCurrentPage }) => {
       </div>
 
       {/* Boton  */}
-      <div className='startButton'>
-        <button type="button" className='btn btn-secondary btn-lg' onClick={changePage} > Iniciar juego </button>
+      <div >
+        <button type="button" className='btn btn-warning btn-lg , principal-buttons' onClick={changePage} > Iniciar juego </button>
       </div>
 
     </>

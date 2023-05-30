@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-export const TableBoard = ({ setCurrentPage, tablePoints }) => {
+export const TableBoard = ({ setCurrentPage, tablePoints, points }) => {
 
   const changePage = (event) => {
     event.preventDefault();
@@ -22,32 +22,40 @@ export const TableBoard = ({ setCurrentPage, tablePoints }) => {
     <>
       {/* Tittle */}
 
-      <div> <br /><br />
-        <span>
-          Chico Jugado a: 111 Puntos
-        </span>
+      <div>
+      <div className='title-table-points'>
+        <h1>Tabla de puntos</h1>
       </div>
 
-      <div className='TittleTablePoints'>
-        <h1> Tabla de puntos </h1>
+      <div className="sapo-tb">
+        <img src="./public/images/sapo.png" alt=" BoliRana" />
       </div>
+
+        <span>
+          Chico Jugado a: {points} 
+        </span>
+      </div>
+      <br/><br/>
+       
+    
 
       {/* TABLE */}
 
-      <table className=" table table-success table-hover ">
+      <table className="table table-success table-striped">
         <thead>
-          <tr>
+          <tr >
             <th scope="col">Nombre del jugador</th>
             <th scope="col">Acumulado de puntos</th>
           </tr>
         </thead>
-        <tbody>
+        
+        <tbody >
           {tableBody}
         </tbody>
       </table>
 
       {/* Name Player */}
-      <div> <br /><br />
+      <div> 
         <h1>
           Carlos Yara !! <br />
           Estas a 30 puntos de ganar
@@ -55,8 +63,8 @@ export const TableBoard = ({ setCurrentPage, tablePoints }) => {
       </div>
 
       {/* Boton  */}
-      <div className='startButton'>
-        <button type="button" className='btn btn-secondary btn-lg' onClick={changePage} > Siguiente Jugador </button>
+      <div>
+        <button type="button" className='btn btn-warning btn-lg, principal-buttons' onClick={changePage} > Siguiente Jugador </button>
       </div>
 
     </>

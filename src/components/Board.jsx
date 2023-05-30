@@ -32,9 +32,8 @@ export const Board = ({ resumeGame, namePlayer }) => {
       <h1>  ****Juguemos**** </h1>
 
       {/* Text Box */}
-      <div>
+      <div className='turno-de'>
         <span className='block'> Turno de: {namePlayer}
-
         </span>
       </div>
 
@@ -46,7 +45,8 @@ export const Board = ({ resumeGame, namePlayer }) => {
       {/* SUM Box POINTS */}
       <div>
         <h4> Sumador de puntos</h4>
-        <span>
+
+        <span className='block'>
           llevas: {sumPoints} puntos
         </span>
       </div>
@@ -76,8 +76,8 @@ export const Board = ({ resumeGame, namePlayer }) => {
       </div>
 
       {/*Final Button */}
-      <div className='startButton'>
-        <button type="button" className='btn btn-secondary btn-lg' onClick={changePage} > Terminar Turno</button>
+      <div>
+        <button type="button" className='btn btn-warning btn-lg, principal-buttons' onClick={changePage} > Terminar Turno</button>
       </div>
 
     </>

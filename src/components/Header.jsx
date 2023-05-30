@@ -8,10 +8,10 @@ export const Header = () => {
       {/* Titulo */}
       <div>
         <h1>
-          Rana APP cuenta tu puntaje !
+          **Rana APP**
         </h1>
 
-        <h2> <br />
+        <h2> 
           Configuración del tablero
         </h2>
       </div>
@@ -23,5 +23,4 @@ export const Header = () => {
     </>
   );
 }
-
 

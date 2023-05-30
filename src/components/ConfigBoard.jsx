@@ -48,6 +48,7 @@ export const ConfigBoard = ({ startGame }) => {
     <>
       {/* INPUT */}
       <input
+        className='input'
         type='text'
         placeholder='Nombre del jugador'
         name='name_player'
@@ -55,7 +56,7 @@ export const ConfigBoard = ({ startGame }) => {
       />
 
       {/* listado de nombres */}
-      <ol>
+      <ol className='name-player'>
         {
           names.map(name => {  //me permite barrer c/u de los elementos del arreglo y regresar a algo nuevo
             return <li key={name}> {name} </li>
@@ -64,9 +65,9 @@ export const ConfigBoard = ({ startGame }) => {
       </ol>
 
       {/* botones agregar, eliminar personas */}
-      <div className='buttonsChangeList' />
-      <button type="button" className="btn btn-primary btn-sm" onClick={addPlayer} > Agregar participante</button>
-      <button type="reset" className="btn btn-secondary btn-sm" onClick={deleteList} > Eliminar participantes</button>
+      <div/>
+      <button type="button" className="btn btn-success btn-sm, button-add-player" onClick={addPlayer} > Agregar participante</button>
+      <button type="reset" className="btn btn-secondary btn-sm, button-delete-players" onClick={deleteList} > Eliminar participantes</button>
       <div />
 
       {/* PUNTAJES */}
@@ -83,8 +84,9 @@ export const ConfigBoard = ({ startGame }) => {
 
         </select>
       </div>
+
       <div>
-        <button type="submit" className="btn btn-secondary btn-lg" onClick={changePage} > JUGAR </button>
+        <button type="submit" className='btn btn-warning btn-lg , principal-buttons' onClick={changePage} > JUGAR </button>
       </div>
 
     </>
