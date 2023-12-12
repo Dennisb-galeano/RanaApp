@@ -1,16 +1,57 @@
 
 import React, { useState } from 'react'
-import { ConfigBoard } from './ConfigBoard';
+import { Header } from './Header';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
 
 
 export const Board = ({ resumeGame, namePlayer }) => {
 
   const [sumPoints, setSumPoints] = useState(0);
+  const Myswal = withReactContent(Swal);
+  
+
 
   function changePage(event) {
     event.preventDefault();
     resumeGame(sumPoints);
   }
+
+  function seBlanqueo(event) {
+    const restaPuntos = sumPoints + parseInt(event.target.value);
+    setSumPoints(restaPuntos);
+
+    if (restaPuntos < -100) {
+      setSumPoints(-100);
+      Myswal.fire({
+      title: 'se blanqueo dos veces?',
+      icon: "question",
+      // showClass: {
+      //   popup: 'animate__animated animate__fadeInDown'
+      // },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+
+      });
+
+
+    } else if (sumPoints > 0) {
+      setSumPoints(sumPoints);
+      Myswal.fire({
+        title: 'Regresa: No se blanqueo',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        },
+      });
+    }
+
+  }
+  //TODO: arreglar alerts, no permite avanzar si no coloca valor en el puntaje
 
   const resetPoints = (event) => {
     event.preventDefault();
@@ -18,66 +59,57 @@ export const Board = ({ resumeGame, namePlayer }) => {
   }
 
   function sumBoxPoints(event) {
-    let sumaPuntos = sumPoints + parseInt(event.target.value); // parseInt es una fn( ) que convierte valores string en numero 
+    const sumaPuntos = sumPoints + parseInt(event.target.value); // parseInt es una fn( ) que convierte valores string en numero 
     setSumPoints(sumaPuntos);
-    console.log(sumaPuntos);
-    if (resetPoints == 0) {
-      sumBoxPoints();
-    }
   }
+
+
 
   return (
     <>
-      {/* Tittle */}
-      <h1>  ****Juguemos**** </h1>
-
-      {/* Text Box */}
-      <div className='turno-de'>
-        <span className='block'> Turno de: {namePlayer}
-        </span>
-      </div>
-
-      {/* Image */}
-      <div className="sapo">
-        <img src="./public/images/sapo.png" alt=" BoliRana" />
-      </div>
+      <Header />
 
       {/* SUM Box POINTS */}
-      <div>
-        <h4> Sumador de puntos</h4>
+      <h2 className=' text-center title-config display-3'> Sumador de puntos</h2>
 
-        <span className='block'>
-          llevas: {sumPoints} puntos
-        </span>
+      {/* Text Box */}
+      <div className='turno text-center mt-5 p-2 shadow'>
+        <h3 className='turno-de display-6 '> Turno de : </h3>
+        <h3 className='turno-de display-8'> {namePlayer}</h3>
+
+        <div className='span'>
+          Llevas: {sumPoints} puntos
+        </div>
       </div>
 
       {/* Buttons Points */}
-      <div className='button-points'>
-        <button type="button" value="20" className="btn btn-success" onClick={sumBoxPoints}>20</button>
-        <button type="button" value="30" className="ms-1 btn btn-success" onClick={sumBoxPoints}>30</button>
-        <button type="button" value="40" className="ms-1 btn btn-success" onClick={sumBoxPoints}>40</button>
-        <button type="button" value="50" className="ms-1 btn btn-success" onClick={sumBoxPoints}>50</button>
-        <button type="button" value="60" className="ms-1 btn btn-success" onClick={sumBoxPoints}>60</button>
-        <button type="button" value="70" className="ms-1 btn btn-success" onClick={sumBoxPoints}>70</button>
-        <button type="button" value="80" className="ms-1 btn btn-success" onClick={sumBoxPoints}>80</button>
-      </div>
-
       <div>
-        <button type="button" value="200" className="ms-1 btn btn-warning" onClick={sumBoxPoints}>Rana: 200</button>
-        <button type="button" value="100" className="ms-1 btn btn-warning" onClick={sumBoxPoints}>Botella: 100</button>
+        <div className='text-center button-points'>
+          <button type="button" value="30" className="padding-buttons ms-1 btn btn-success" onClick={sumBoxPoints}>30</button>
+          <button type="button" value="40" className="padding-buttons ms-1 btn btn-success" onClick={sumBoxPoints}>40</button>
+          <button type="button" value="50" className="padding-buttons ms-1 btn btn-success" onClick={sumBoxPoints}>50</button>
+
+        </div>
+
+        <div className='text-center'>
+          <button type="button" value="150" className="p-3 ms-1 btn btn-warning" onClick={sumBoxPoints}>Botella: 150</button>
+          <button type="button" value="200" className="p-3 ms-1 btn btn-warning" onClick={sumBoxPoints}>Rana: 200</button>
+          <button type="button" value="300" className="p-3 ms-1 btn btn-warning" onClick={sumBoxPoints}>Chiquito: 300</button>
+
+        </div>
+
+        <div className='text-center my-1'>
+          <button type="button" value="-100" className="p-3 btn btn-danger" onClick={seBlanqueo}>Se Blanqueo -100</button>
+        </div>
+
       </div>
 
-      <div>
-        <button type="button" value="-10" className="btn btn-danger" onClick={sumBoxPoints}>Se Blanqueo -10</button>
-      </div>
+      <div className='text-center reset-points mt-5 '>
+        <button type="button" className="btn btn-warning btn-lg, board-buttons" onClick={resetPoints} > Reiniciar Puntaje</button>
 
-      <div className='change-points'>
-        <button type="button" className="btn btn-outline-info" onClick={resetPoints} > Reiniciar Puntaje</button>
-      </div>
+        {/*Final Button */}
+        <button type="button" className='m-3 btn btn-warning btn-lg, board-buttons' onClick={changePage} > Terminar Turno</button>
 
-      {/*Final Button */}
-      <div>
-        <button type="button" className='btn btn-warning btn-lg, principal-buttons' onClick={changePage} > Terminar Turno</button>
       </div>
 
     </>

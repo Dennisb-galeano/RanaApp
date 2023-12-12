@@ -1,24 +1,21 @@
 
 
-import React from 'react'
-
 export const Header = () => {
   return (
     <>
-      {/* Titulo */}
-      <div>
-        <h1>
-          **Rana APP**
-        </h1>
 
-        <h2> 
-          Configuración del tablero
-        </h2>
-      </div>
+      <div className='navbar fixed-top shadow-lg p-0'>
+        <div className="navbar">
 
-      {/* imagen */}
-      <div className="sapo">
-        <img src="./public/images/sapo.png" alt=" BoliRana" />
+        <div className='col-4'>
+          <img className='navbar-toggler' src="./images/sapo.png" alt=" BoliRana" />
+        </div>
+
+        <div className='col-8 row'>
+          <h1>Rana APP</h1>
+        </div>
+
+        </div>
       </div>
     </>
   );

@@ -9,8 +9,7 @@ import { Game } from "./components/Game";
 export const RanaApp = () => {
 
   const [players, setPlayers] = useState([]);
-  const [points, setPoints] = useState(0);
-
+  const [points, setPoints] = useState(500);
   const [currentPage, setCurrentPage] = useState(0);
   /*
   0 = FirstPage (Inicio)
@@ -24,7 +23,7 @@ export const RanaApp = () => {
     setCurrentPage(2);
   }
 
-  function RenderPage({ currentPage }) {
+  const RenderPage =({ currentPage }) => {
     if (currentPage == 0) {
       return <FirstPage
         setCurrentPage={setCurrentPage}
@@ -45,8 +44,7 @@ export const RanaApp = () => {
         <Game
           players={players}
           points={points}
-        />
-        
+        />        
       )
     }
   }
